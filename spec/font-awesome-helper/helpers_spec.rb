@@ -12,6 +12,22 @@ describe FontAwesomeHelper::Helpers do
       subject { test_class.fa_icon('github') }
       it { is_expected.to eq '<i class="fa fa-github"></i>' }
       it { is_expected.to be_html_safe }
+
+      context 'with a text behind the icon' do
+        subject do
+          test_class.fa_icon('github') { |i| "#{i} izumin5210" }
+        end
+        it { is_expected.to eq '<i class="fa fa-github"></i> izumin5210' }
+        it { is_expected.to be_html_safe }
+      end
+
+      context 'with a text beyond the icon' do
+        subject do
+          test_class.fa_icon('github') { |i| "izumin5210 #{i}" }
+        end
+        it { is_expected.to eq 'izumin5210 <i class="fa fa-github"></i>' }
+        it { is_expected.to be_html_safe }
+      end
     end
 
     context 'with "github 2x fw" as an argument' do

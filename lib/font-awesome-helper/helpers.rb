@@ -13,7 +13,8 @@ module FontAwesomeHelper
     def fa_icon(names)
       names = names_to_array(names).map { |n| "#{FA_CLASS_PREFIX}-#{n}" }
       classes = %W(fa #{names.join(' ')})
-      content_tag(:i, nil, class: classes)
+      icon_tag = content_tag(:i, nil, class: classes)
+      (block_given? ? yield(icon_tag) : icon_tag).html_safe
     end
 
     # TODO: stackしやすいやつ
