@@ -35,5 +35,11 @@ describe FontAwesomeHelper::Helpers do
       it { is_expected.to eq '<i class="fa fa-github fa-2x fa-fw"></i>' }
       it { is_expected.to be_html_safe }
     end
+
+    context 'with "quote-left border" and { class: "pull-left" } option' do
+      subject { test_class.fa_icon('quote-left border', class: 'pull-left') }
+      it { is_expected.to eq '<i class="fa fa-quote-left fa-border pull-left"></i>' }
+      it { is_expected.to be_html_safe }
+    end
   end
 end

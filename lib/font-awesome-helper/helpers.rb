@@ -10,9 +10,9 @@ module FontAwesomeHelper
     # TODO: size (e.g. `fa_icon 'github', size: '2x'`)
     # TODO: rotate (e.g. `fa_icon 'github', rotate: 90`)
     # TODO: flip (e.g. `fa_icon 'github', flip: :vertical`)
-    def fa_icon(names)
-      names = names_to_array(names).map { |n| "#{FA_CLASS_PREFIX}-#{n}" }
-      classes = %W(fa #{names.join(' ')})
+    def fa_icon(names, options = {})
+      names = classes(names).map { |n| "#{FA_CLASS_PREFIX}-#{n}" }
+      classes = %W(fa #{names.join(' ')}) + classes(options.delete(:class))
       icon_tag = content_tag(:i, nil, class: classes)
       (block_given? ? yield(icon_tag) : icon_tag).html_safe
     end
@@ -22,10 +22,11 @@ module FontAwesomeHelper
 
     private
 
-    def names_to_array(names)
+    def classes(names)
       case names
       when Array then names
       when String then names.split(/\s+/)
+      else []
       end
     end
   end
