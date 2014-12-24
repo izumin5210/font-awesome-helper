@@ -9,14 +9,14 @@ Gem::Specification.new do |s|
   s.version     = FontAwesomeHelper::VERSION
   s.authors     = ["Masayuki IZUMI"]
   s.email       = ["masayuki@izumin.info"]
-  s.homepage    = "http://izumin.info"
+  s.homepage    = "https://github.com/izumin5210/font-awesome-helper"
   s.summary     = "Useful helper for Font Awesome."
   s.description = "Provide useful helper methods for Font Awesome."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", "~> 4.1.8"
+  s.add_dependency "rails", "~> 4.0"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
