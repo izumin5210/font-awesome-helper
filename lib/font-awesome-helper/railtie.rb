@@ -1,5 +1,4 @@
 require 'rails/railtie'
-require 'font-awesome-helper'
 
 module FontAwesomeHelper
   class Railtie < ::Rails::Railtie
