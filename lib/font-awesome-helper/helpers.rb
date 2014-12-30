@@ -19,6 +19,10 @@ module FontAwesomeHelper
       content_tag :ul, class: classes.join(' '), &block
     end
 
+    def fa_li(names, options = {})
+      content = fa_icon(names + ' li') { |i| "#{i}#{yield}" }
+      content_tag :li, content, options
+    end
     # TODO: stackしやすいやつ
     # TODO: fa-ul，fa-liのやつ
   end

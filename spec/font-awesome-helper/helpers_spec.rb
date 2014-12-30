@@ -56,4 +56,18 @@ describe FontAwesomeHelper::Helpers do
       it { is_expected.to be_html_safe }
     end
   end
+
+  describe '#fa_li' do
+    context 'with "github" as an argument and a text as a block' do
+      subject { test_class.fa_li('github') { 'izumin5210' } }
+      it { is_expected.to eq '<li><i class="fa fa-github fa-li"></i>izumin5210</li>' }
+      it { is_expected.to be_html_safe }
+    end
+
+    context 'with "spinner spin" as an argument and a text as a block' do
+      subject { test_class.fa_li('spinner spin') { 'loading...' } }
+      it { is_expected.to eq '<li><i class="fa fa-spinner fa-spin fa-li"></i>loading...</li>' }
+      it { is_expected.to be_html_safe }
+    end
+  end
 end
