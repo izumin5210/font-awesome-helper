@@ -27,6 +27,18 @@ fa_icon 'home fw'
 
 fa_icon 'quote-left border 3x', class: 'pull-left'
 # => <i class="fa fa-quote-left fa-border pull-left"></i>
+
+fa_ul do
+  fa_li('twitter') { 'twitter.com/izumin5210' }
+  fa_li('github') { 'github.com/izumin5210' }
+  fa_li('tumblr') { 'tumblr.izumin.info' }
+end
+
+# => <ul class="fa-ul">
+# =>   <li><i class="fa fa-twitter fa-li"></i>twitter.com/izumin5210</li>
+# =>   <li><i class="fa fa-github fa-li"></i>github.com/izumin5210</li>
+# =>   <li><i class="fa fa-tumblr fa-li"></i>tumblr.izumin.info</li>
+# => </ul>
 ```
 
 ## License
