@@ -13,6 +13,12 @@ module FontAwesomeHelper
       (block_given? ? yield(icon.to_tag) : icon.to_tag).html_safe
     end
 
+    def fa_ul(options = {}, &block)
+      classes = %w(fa-ul)
+      classes += options.delete(:class).split(' ') if options.key? :class
+      content_tag :ul, class: classes.join(' '), &block
+    end
+
     # TODO: stackしやすいやつ
     # TODO: fa-ul，fa-liのやつ
   end

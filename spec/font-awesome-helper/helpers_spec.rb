@@ -42,4 +42,18 @@ describe FontAwesomeHelper::Helpers do
       it { is_expected.to be_html_safe }
     end
   end
+
+  describe '#fa_ul' do
+    context 'with no options' do
+      subject { test_class.fa_ul { 'awesome!' } }
+      it { is_expected.to eq '<ul class="fa-ul">awesome!</ul>' }
+      it { is_expected.to be_html_safe }
+    end
+
+    context 'with "awesome-list" class' do
+      subject { test_class.fa_ul(class: 'awesome-list') { 'awesome!' } }
+      it { is_expected.to eq '<ul class="fa-ul awesome-list">awesome!</ul>' }
+      it { is_expected.to be_html_safe }
+    end
+  end
 end
